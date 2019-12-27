@@ -5,7 +5,7 @@ Date format: (YYYY-MM-DD)
 ### Supported MC versions: xxx
 
 ## v2.9.0 (TBA)
-### Supported MC versions: 1.14.4
+### Supported MC versions: 1.14.4, 1.15.1
 
 Migration notes:  
 * Removed the importing of old book offers (from late MC 1.12.2, see v1.83). When updating from an older version of Shopkeepers, you will have to first update to a version in-between.
@@ -143,6 +143,12 @@ Save data format changes:
 * The storage of book shopkeeper offers has changed.
 * The ids used for storing shopkeeper offers start at 1 now (instead of 0). This has no impact on the loading of save data (it still accepts any ids), but makes it nicer to read.
 
+Config changes:  
+* Added various message formatting related settings:
+  * 'locale' (default: empty)
+  * 'time-zone' (default: 'default')
+  * 'date-time-format' (default: 'd MMM yyyy HH:mm:ss z')
+
 Changed messages (you will have to manually update those!):  
 * msg-list-shops-entry: 'object type' changed to 'object', and the arguments '{shopSessionId}' and '{shopId}' changed to '{shopId}' and '{shopUUID}' respectively. Argument '{shopSessionId}' still works but will likely get removed in the future.
 * msg-villager-for-hire: The german translation was slightly changed.
@@ -164,9 +170,17 @@ Removed messages:
 
 New messages:  
 * msg-command-argument-requires-player
+* msg-player-profile
+* msg-player-profile-not-found
 * msg-ambiguous-player-name
 * msg-ambiguous-player-name-entry
 * msg-ambiguous-player-name-more
+* msg-ambiguous-shopkeeper-name
+* msg-ambiguous-shopkeeper-name-entry
+* msg-ambiguous-shopkeeper-name-more
+* msg-ambiguous-target-shopkeeper
+* msg-ambiguous-target-shopkeeper-entry
+* msg-ambiguous-target-shopkeeper-more
 
 ## v2.8.1 (2019-08-23)
 ### Supported MC versions: 1.14.4
