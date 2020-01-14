@@ -4,6 +4,13 @@ Date format: (YYYY-MM-DD)
 ## Next release
 ### Supported MC versions: xxx
 
+## v2.2.3 (2020-01-14)
+### Supported MC versions: 1.12, 1.11, 1.10, 1.9, 1.8
+
+* Changed: This version relies relies on Spigot's item serialization to save/load item attributes on MC 1.8_R3.
+	* This will only work on the latest version of Spigot 1.8.x, since they did not save unaccounted item data (such as attributes) before that.
+	* Existing item attribute data still gets loaded as before.
+
 ## v2.2.2 (2018-09-11)
 ### Supported MC versions: 1.12, 1.11, 1.10, 1.9, 1.8
 * Fixed (#522): CME during reload when closing shopkeeper UIs.
