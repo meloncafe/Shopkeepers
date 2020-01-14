@@ -246,11 +246,11 @@ public final class ItemUtils {
 		assert section != null && node != null;
 		section.set(node, item);
 		// saving attributes manually, as they weren't saved by bukkit in the past:
-//		String attributes = NMSManager.getProvider().saveItemAttributesToString(item);
-//		if (attributes != null && !attributes.isEmpty()) {
-//			String attributesNode = node + "_attributes";
-//			section.set(attributesNode, attributes);
-//		}
+		String attributes = NMSManager.getProvider().saveItemAttributesToString(item);
+		if (attributes != null && !attributes.isEmpty()) {
+			String attributesNode = node + "_attributes";
+			section.set(attributesNode, attributes);
+		}
 	}
 
 	/**
@@ -267,13 +267,13 @@ public final class ItemUtils {
 		assert section != null && node != null;
 		ItemStack item = section.getItemStack(node);
 		// loading separately stored attributes:
-//		String attributesNode = node + "_attributes";
-//		if (item != null && section.contains(attributesNode)) {
-//			String attributes = section.getString(attributesNode);
-//			if (attributes != null && !attributes.isEmpty()) {
-//				item = NMSManager.getProvider().loadItemAttributesFromString(item, attributes);
-//			}
-//		}
+		String attributesNode = node + "_attributes";
+		if (item != null && section.contains(attributesNode)) {
+			String attributes = section.getString(attributesNode);
+			if (attributes != null && !attributes.isEmpty()) {
+				item = NMSManager.getProvider().loadItemAttributesFromString(item, attributes);
+			}
+		}
 		return item;
 	}
 

@@ -261,24 +261,26 @@ public final class NMSHandler implements NMSCallProvider {
 
 	@Override
 	public String saveItemAttributesToString(org.bukkit.inventory.ItemStack item) {
-		net.minecraft.server.v1_8_R3.ItemStack nmsItem = CraftItemStack.asNMSCopy(item);
-		if (nmsItem == null) return null;
-		NBTTagCompound tag = nmsItem.getTag();
-		if (tag == null || !tag.hasKey("AttributeModifiers")) {
-			return null;
-		}
-		String data = "";
-		NBTTagList list = tag.getList("AttributeModifiers", 10);
-		for (int i = 0; i < list.size(); i++) {
-			NBTTagCompound attr = list.get(i);
-			data += attr.getString("Name") + ","
-					+ attr.getString("AttributeName") + ","
-					+ attr.getDouble("Amount") + ","
-					+ attr.getInt("Operation") + ","
-					+ attr.getLong("UUIDLeast") + ","
-					+ attr.getLong("UUIDMost") + ";";
-		}
-		return data;
+		// since somewhere in late bukkit 1.8, bukkit saves item attributes on its own (inside the internal data)
+		return null;
+//		net.minecraft.server.v1_8_R3.ItemStack nmsItem = CraftItemStack.asNMSCopy(item);
+//		if (nmsItem == null) return null;
+//		NBTTagCompound tag = nmsItem.getTag();
+//		if (tag == null || !tag.hasKey("AttributeModifiers")) {
+//			return null;
+//		}
+//		String data = "";
+//		NBTTagList list = tag.getList("AttributeModifiers", 10);
+//		for (int i = 0; i < list.size(); i++) {
+//			NBTTagCompound attr = list.get(i);
+//			data += attr.getString("Name") + ","
+//					+ attr.getString("AttributeName") + ","
+//					+ attr.getDouble("Amount") + ","
+//					+ attr.getInt("Operation") + ","
+//					+ attr.getLong("UUIDLeast") + ","
+//					+ attr.getLong("UUIDMost") + ";";
+//		}
+//		return data;
 	}
 
 	@Override
